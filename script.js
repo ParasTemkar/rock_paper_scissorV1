@@ -1,19 +1,16 @@
 //to get computer choice
 function getComputerChoice() {
-    return Math.floor(Math.random()*9)+1;
-  }
+    return Math.floor(Math.random() * 9) + 1;
+    }
 
-let randomInt = getComputerChoice();
-let computerChoice = ""
-
-if ([1,2,3].includes(randomInt)){
-    computerChoice = "rock";
-}
-else if ([4,5,6].includes(randomInt)){
-    computerChoice = "paper";
-}
-else if ([7,8,9].includes(randomInt)){
-    computerChoice = "scissor";
+function getChoiceFromNumber(number) {
+    if ([1, 2, 3].includes(number)) {
+        return "rock";
+    } else if ([4, 5, 6].includes(number)) {
+        return "paper";
+    } else if ([7, 8, 9].includes(number)) {
+        return "scissor";
+    }
 }
 
 // to get human choice
@@ -26,32 +23,46 @@ function getHumanChoice() {
     }
     return humanChoice.toLowerCase();
 }
-let humanChoice = getHumanChoice();
 
 
-if (humanChoice === computerChoice) {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nTIE!!!");
-} else if (humanChoice === null) {
-    // No action needed
-}
+let humanScore = 0;
+let computerScore = 0;
 
-//winning scenarios
-else if (
-    (computerChoice === "rock" && humanChoice === "paper") ||
-    (computerChoice === "scissor" && humanChoice === "rock") ||
-    (computerChoice === "paper" && humanChoice === "scissor")
-) 
-   { alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU WON!!!");
-    }
-//losing scenarios
-else if (
-    (computerChoice === "rock" && humanChoice === "scissor") ||
-    (computerChoice === "paper" && humanChoice === "rock") ||
-    (computerChoice === "scissor" && humanChoice === "paper")
-)
-   { alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU LOST.");
+// Run the game 5 times
+for (let i = 0; i < 5; i++) {
+    let randomInt = getComputerChoice();
+    let computerChoice = getChoiceFromNumber(randomInt);
+    let humanChoice = getHumanChoice();
+
+    if (humanChoice === null) {
+        continue;
     }
 
-else {
-    alert("Enter rock, paper or scissor");
+    // Tie scenarios
+    if (humanChoice === computerChoice) {
+        alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nTIE!!!");
+    }
+    // Winning scenarios
+    else if (
+        (computerChoice === "rock" && humanChoice === "paper") ||
+        (computerChoice === "scissor" && humanChoice === "rock") ||
+        (computerChoice === "paper" && humanChoice === "scissor")
+    ) {
+        alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU WON!!!");
+        humanScore += 1;
+    }
+    // Losing scenarios
+    else if (
+        (computerChoice === "rock" && humanChoice === "scissor") ||
+        (computerChoice === "paper" && humanChoice === "rock") ||
+        (computerChoice === "scissor" && humanChoice === "paper")
+    ) {
+        alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU LOST.");
+        computerScore += 1;
+    } else {
+        alert("Invalid input. Please enter rock, paper, or scissor.");
+    }
 }
+
+// Display final scores
+alert("Final Scores:\nHuman: " + humanScore + "\nComputer: " + computerScore);
