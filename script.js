@@ -6,12 +6,16 @@ let randomInt = getComputerChoice();
 let computerChoice = ""
 
 if ([1,2,3].includes(randomInt)){
-    computerChoice = "Rock";
+    computerChoice = "rock";
 }
 else if ([4,5,6].includes(randomInt)){
-    computerChoice = "Paper";
+    computerChoice = "paper";
 }
-else if ([7,8,9].includes(randomInt))){
-    computerChoice = "Scissor";
+else if ([7,8,9].includes(randomInt)){
+    computerChoice = "scissor";
+}
+
+let humanChoice = function getHumanChoice(){
+    return prompt("Enter rock, paper or scissor","rock");
 }
 
