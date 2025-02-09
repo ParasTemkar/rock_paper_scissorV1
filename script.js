@@ -36,21 +36,22 @@ if (humanChoice === computerChoice) {
 }
 
 //winning scenarios
-else if (computerChoice === "rock" && humanChoice === "paper") {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU WON!!!");
-} else if (computerChoice === "scissor" && humanChoice === "rock") {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU WON!!!");
-} else if (computerChoice === "paper" && humanChoice === "scissor") {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU WON!!!");
-}
-
+else if (
+    (computerChoice === "rock" && humanChoice === "paper") ||
+    (computerChoice === "scissor" && humanChoice === "rock") ||
+    (computerChoice === "paper" && humanChoice === "scissor")
+) 
+   { alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU WON!!!");
+    }
 //losing scenarios
-else if (computerChoice === "rock" && humanChoice === "scissor") {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU LOST.");
-} else if (computerChoice === "paper" && humanChoice === "rock") {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU LOST.");
-} else if (computerChoice === "scissor" && humanChoice === "paper") {
-    alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU LOST.");
-} else {
+else if (
+    (computerChoice === "rock" && humanChoice === "scissor") ||
+    (computerChoice === "paper" && humanChoice === "rock") ||
+    (computerChoice === "scissor" && humanChoice === "paper")
+)
+   { alert("Computer's choice: " + computerChoice + "\nYour choice: " + humanChoice + "\nYOU LOST.");
+    }
+
+else {
     alert("Enter rock, paper or scissor");
 }
