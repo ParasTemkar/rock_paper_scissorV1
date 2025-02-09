@@ -1,18 +1,17 @@
-function getRandomInt() {
+function getComputerChoice() {
     return Math.floor(Math.random()*9)+1;
   }
 
-let randomInt = getRandomInt();
-let computerMove = ""
+let randomInt = getComputerChoice();
+let computerChoice = ""
 
-if (randomInt==1 || randomInt==2 || randomInt==3 ){
-    computerMove = "Rock";
+if ([1,2,3].includes(randomInt)){
+    computerChoice = "Rock";
 }
-else if (randomInt==4 || randomInt==5 || randomInt==6 ){
-    computerMove = "Paper";
+else if ([4,5,6].includes(randomInt)){
+    computerChoice = "Paper";
 }
-else if (randomInt==7 || randomInt==8 || randomInt==9 ){
-    computerMove = "Scissor";
+else if ([7,8,9].includes(randomInt))){
+    computerChoice = "Scissor";
 }
 
-alert(computerMove)
